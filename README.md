@@ -27,6 +27,8 @@ The ArXiv MCP Server provides a bridge between AI assistants and arXiv's researc
 - 📋 **Paper Listing**: View all downloaded papers
 - 🗃️ **Local Storage**: Papers are saved locally for faster access
 - 📝 **Prompts**: A Set of Research Prompts
+- 🔍 **CIF Search**: Search for Crystallographic Information Files (CIF) for materials research
+- ✅ **CIF Check**: Check if papers have associated CIF files
 
 ## 🚀 Quick Start
 
@@ -101,7 +103,7 @@ For Development:
 
 ## 💡 Available Tools
 
-The server provides four main tools:
+The server provides six main tools:
 
 ### 1. Paper Search
 Search for papers with optional filters:
@@ -136,6 +138,26 @@ Access the content of a downloaded paper:
 
 ```python
 result = await call_tool("read_paper", {
+    "paper_id": "2401.12345"
+})
+```
+
+### 5. Search CIF Files
+Search for Crystallographic Information Files (CIF) associated with materials research:
+
+```python
+result = await call_tool("search_cif", {
+    "query": "lithium-ion battery materials",
+    "max_results": 5
+})
+```
+
+### 6. Check Paper for CIF Files
+Check if a specific research paper has associated CIF files:
+
+```python
+result = await call_tool("check_cif", {
+    "paper_title": "Advanced Lithium Cobalt Oxide Structures",
     "paper_id": "2401.12345"
 })
 ```
